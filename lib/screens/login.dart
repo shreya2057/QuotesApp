@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/text_field.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -43,30 +44,18 @@ class LoginScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(236, 123, 152, 241)),
                   )),
-                  const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          labelText: "Email",
-                          labelStyle: TextStyle(
-                              color: Color.fromARGB(235, 172, 172, 173)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              style: BorderStyle.solid,
-                              color: Color.fromARGB(236, 123, 152, 241),
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              style: BorderStyle.solid,
-                              color: Color.fromARGB(236, 123, 152, 241),
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        ),
-                      ))
+                  const TextBox(
+                    label: "Email",
+                  ),
+                  const TextBox(
+                    label: "Password",
+                  ),
+                  Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text("Login")),
+                  ))
                 ],
               ),
             )
