@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quotesapp/components/auth_button.dart';
+import 'package:quotesapp/components/cancel_button.dart';
 import '../components/text_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -25,17 +27,8 @@ class LoginScreen extends StatelessWidget {
               color: const Color.fromARGB(255, 253, 254, 255),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  IconButton(
-                    padding: const EdgeInsets.all(0),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.cancel_outlined,
-                      color: Color.fromARGB(236, 123, 152, 241),
-                    ),
-                  ),
+                children: <Widget>[
+                  const Cancel(),
                   const Center(
                       child: Text(
                     "Login",
@@ -46,16 +39,29 @@ class LoginScreen extends StatelessWidget {
                   )),
                   const TextBox(
                     label: "Email",
+                    icon: Icons.mail,
                   ),
                   const TextBox(
                     label: "Password",
+                    icon: Icons.lock,
                   ),
-                  Center(
-                      child: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: ElevatedButton(
-                        onPressed: () {}, child: const Text("Login")),
-                  ))
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Forgot password?",
+                            style: TextStyle(
+                              color: Color.fromARGB(236, 123, 152, 241),
+                            ),
+                          )),
+                    ),
+                  ),
+                  const AuthButton(
+                    label: "Login",
+                  )
                 ],
               ),
             )
