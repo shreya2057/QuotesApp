@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotesapp/screens/home_screen.dart';
 
 class AuthButton extends StatelessWidget {
   const AuthButton({Key? key, required this.label}) : super(key: key);
@@ -12,7 +13,8 @@ class AuthButton extends StatelessWidget {
       padding: const EdgeInsets.all(30.0),
       child: ElevatedButton(
           onPressed: () {
-            print("Hi");
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const HomeScreen()));
           },
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(

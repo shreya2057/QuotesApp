@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quotesapp/screens/home_screen.dart';
+import 'package:quotesapp/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const SafeArea(
-        child: HomeScreen(),
+        child: WelcomeScreen(),
       ),
     );
   }
