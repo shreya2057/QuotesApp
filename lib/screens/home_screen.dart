@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quotesapp/screens/login.dart';
+import 'package:quotesapp/screens/register.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return LoginScreen();
+                  return const RegisterScreen();
                 }));
               },
               child: Text("Next")),
