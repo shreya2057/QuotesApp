@@ -38,6 +38,10 @@ class RegisterScreen extends StatelessWidget {
                         color: Color.fromARGB(236, 123, 152, 241)),
                   )),
                   const TextBox(
+                    label: "Full Name",
+                    icon: Icons.person,
+                  ),
+                  const TextBox(
                     label: "Email",
                     icon: Icons.mail,
                   ),
@@ -45,14 +49,17 @@ class RegisterScreen extends StatelessWidget {
                     label: "Password",
                     icon: Icons.lock,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Align(
-                      alignment: Alignment.centerRight,
+                  const TextBox(
+                    label: "Confirm Password",
+                    icon: Icons.lock,
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20),
                       child: TextButton(
                           onPressed: () {},
                           child: const Text(
-                            "Forgot password?",
+                            "Already have an account?",
                             style: TextStyle(
                               color: Color.fromARGB(236, 123, 152, 241),
                             ),
