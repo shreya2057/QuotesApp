@@ -6,10 +6,16 @@ class ViewQuotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
         child: Scaffold(
-      appBar: AppBars(
+      appBar: const AppBars(
         title: "Quotes",
+      ),
+      body: Column(
+        children: [
+          const Card(),
+          ElevatedButton(onPressed: () {}, child: const Text("New Quotes"))
+        ],
       ),
     ));
   }
