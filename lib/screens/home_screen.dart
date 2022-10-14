@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:quotesapp/screens/view_quotes.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void getData() async {
-    var url = Uri.https('dummyjson.com', '/quotes/1', {'q': '{http}'});
+  //http get
+  dynamic getData() async {
+    var url = Uri.https('dummyjson.com', '/quotes', {'q': '{http}'});
 
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
     if (response.statusCode == 200) {
-      print(response.body);
+      var data = jsonDecode(response.body);
+      return data;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      return 'Request failed with status: ${response.statusCode}.';
     }
   }
 
@@ -25,10 +28,15 @@ class HomeScreen extends StatelessWidget {
           children: [
             const Text("hi"),
             ElevatedButton(
-                onPressed: () {
-                  getData();
+                onPressed: () async {
+                  var data = await getData();
+                  String quotes = data["quotes"][0]["quote"];
+                  String authorName = data["quotes"][0]["author"];
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ViewQuotes()));
+                      builder: (context) => ViewQuotes(
+                            quote: quotes,
+                            authorName: authorName,
+                          )));
                 },
                 child: const Text("View Quotes"))
           ],
